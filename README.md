@@ -111,7 +111,7 @@ I might still add this functionality at some point in time for the sake of it.
 
 In case I forgot to consider something important in this decision, please let me know!
 
-[^note on /dev/random]: Compared to /dev/random, /dev/urandom [will block if the entropy pool is exhausted](http://www.onkarjoshi.com/blog/191/device-dev-random-vs-urandom/), so creation of your keyfile will probably take longer by using /dev/random. However, you could also use your [TPM to increase the speed of your /dev/random](https://wiki.archlinux.org/index.php/Rng-tools)
+[^note on /dev/random]: Compared to /dev/urandom, /dev/random [will block if the entropy pool is exhausted](http://www.onkarjoshi.com/blog/191/device-dev-random-vs-urandom/), so creation of your keyfile will probably take longer by using /dev/random. However, you could also use your [TPM to increase the speed of your /dev/random](https://wiki.archlinux.org/index.php/Rng-tools)
 
 ## Install necessary scripts
 
