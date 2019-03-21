@@ -18,7 +18,7 @@ You'll have to take ownership of your TPM in case you haven't done so yet. You m
 
 First, install `TrouSers` and `tpm-tools`. Using Debian, this can be done with
 
-`sudo aptitude install tpm-tools trousers`
+`sudo apt-get update && sudo apt-get install tpm-tools trousers`
 
 Afterwards, you can take ownership of the TPM:
 
