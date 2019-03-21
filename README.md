@@ -118,6 +118,7 @@ In case I forgot to consider something important in this decision, please let me
 We will store the secret directly in the TPM - in its NVRAM. There's a tool for that called [tpm-luks](https://github.com/shpedoikal/tpm-luks), but it seemed to be a bit too much for what I needed (and only works with dracut), so I created my own bash scripts. First, to make things easier, I've created `/sbin/seal-nvram.sh`, a script that puts the content of your file in NVRAM and seals it to PCRs 0-13 if the parameter `-z` is NOT used. (I have to admit that checking for the `-z` parameter is quite hacky, but it did the job for me.) So, download seal-nvram.sh, move it to /sbin, and don't forget to make it executable:
 
 ```bash
+git clone https://github.com/stengoes/linux-luks-tpm-boot.git
 cd linux-luks-tpm-boot/
 sudo mv seal-nvram.sh /sbin/
 sudo chmod +x /sbin/seal-nvram.sh
@@ -151,7 +152,6 @@ Now you can use `/sbin/seal-nvram.sh` to write a key file to the TPM's NVRAM, an
 You can already test if the scripts are working by writing the content of the key file to the NVRAM (no need to seal just yet, so you can use the `-z` parameter) and reading it back out again:
 
 ```bash
-git clone https://github.com/stengoes/linux-luks-tpm-boot.git
 sudo /sbin/seal-nvram.sh -z
 sudo /sbin/getsecret.sh | hexdump -C
 sudo hexdump -C /secret.bin
