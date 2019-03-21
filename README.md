@@ -37,15 +37,12 @@ sudo apt-get install autogen autoconf automake gcc bison flex
 ./autogen.sh
 ./configure --prefix=INSTALLDIR --target=i386 -with-platform=pc
 make
+sudo cp -r /boot/grub/locale/ share/
 sudo make install
 sudo ./sbin/grub-install --directory=INSTALLDIR/lib/grub/i386-pc /dev/sda
 ```
 
 Where `INSTALLDIR` is the directory in which TrustedGRUB2 is located.
-
-During the install, you might get a warning that the directory /share/locale is missing. You can solve this issue by copying the folder from `/boot/grub/`:
-
-``sudo cp -r /boot/grub/locale/ share/``
 
 Now you can reboot to see if everything works. In your GRUB-selection screen, the title should now say `TrustedGRUB2`. After the reboot, you can check if TrustedGRUB measured itself, the kernel, initrd, etc by checking out the PCRs of the TPM. By looking at `/sys/class/tpm/tpm0/device/pcrs` (or `/sys/class/misc/tpm0/device/pcrs` for kernel versions < 4.x), you should see something like that:  
 
