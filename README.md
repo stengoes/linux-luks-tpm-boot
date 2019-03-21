@@ -150,6 +150,7 @@ Now you can use `/sbin/seal-nvram.sh` to write a key file to the TPM's NVRAM, an
 You can already test if the scripts are working by writing the content of the key file to the NVRAM (no need to seal just yet, so you can use the `-z` parameter) and reading it back out again:
 
 ```bash
+git clone https://git@github.com:stengoes/linux-luks-tpm-boot.git
 sudo /sbin/seal-nvram.sh -z
 sudo /sbin/getsecret.sh | hexdump -C
 sudo hexdump -C /secret.bin
