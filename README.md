@@ -33,7 +33,7 @@ Installing TrustedGRUB2 can be done by simply following the readme:
 ```bash
 git clone https://github.com/Rohde-Schwarz-Cybersecurity/TrustedGRUB2
 cd TrustedGRUB2
-sudo aptitude install autogen autoconf automake gcc bison flex
+sudo apt-get install autogen autoconf automake gcc bison flex
 ./autogen.sh
 ./configure --prefix=INSTALLDIR --target=i386 -with-platform=pc
 make
