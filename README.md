@@ -84,6 +84,7 @@ Next, we are going to create a key file, which we will be add to our keys for th
 First, create a key file. I am using `/dev/random` for this [^note on /dev/random]. 
 
 `sudo dd bs=1 count=256 if=/dev/random of=/secret.bin`
+This may take some while.
 
 Make sure it's not readable for users:
 
@@ -92,6 +93,8 @@ Make sure it's not readable for users:
 Then, add the keyfile to LUKS:
 
 `sudo cryptsetup luksAddKey /dev/sda<x> /secret.bin`
+
+STEN: In most of our cases <x> = 5. See `lsblk` to see the device where the crypt is.
 
 NOTE: Some people might not like the idea of the keyfile being (temporary) stored on the harddisk. Personally,
 I don't really see a problem with that, since it is stored on an encrypted harddisk. If an attacker is able
