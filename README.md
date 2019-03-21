@@ -94,7 +94,7 @@ Then, add the keyfile to LUKS:
 
 `sudo cryptsetup luksAddKey /dev/sda<x> /secret.bin`
 
-STEN: In most of our cases <x> = 5. See `lsblk` to see the device where the crypt is.
+STEN: In most of our cases `<x> = 5`. See `lsblk` to see the device where the crypt is.
 
 NOTE: Some people might not like the idea of the keyfile being (temporary) stored on the harddisk. Personally,
 I don't really see a problem with that, since it is stored on an encrypted harddisk. If an attacker is able
